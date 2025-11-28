@@ -1,39 +1,730 @@
-<html>
-<style>
-    footer {
-        position: relative;
-        height: 300px;
-        width: 100%;
-        background-color: #EFEFEF;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    p.copyright {
-        position: absolute;
-        width: 100%;
-        color: #000;
-        line-height: 40px;
-        font-size: 1em;
-        text-align: center;
-        bottom:0;
-    }
-</style>
-<body style="background-color:#EFEFEF;">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Saurabh Kumar — Lead Software Engineer specializing in microservices, cloud, and distributed systems." />
+    <title>Saurabh Kumar | Engineering Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #05070f;
+            --bg-card: rgba(10, 12, 25, 0.8);
+            --bg-accent: #12142a;
+            --text: #f6f6f6;
+            --muted: #a3a7c2;
+            --primary: #6c63ff;
+            --primary-glow: rgba(108, 99, 255, 0.35);
+            --border: rgba(255, 255, 255, 0.1);
+            --light-bg: #f8f8fb;
+            --light-card: #ffffff;
+            --light-text: #11122b;
+            --light-muted: #4c4f6b;
+            --light-border: rgba(17, 18, 43, 0.05);
+        }
 
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-	<h1 align="center">Under Construction !!! See you soon.. Macha ;) </h1>
-	<footer>
-    <p class="copyright">© Sourya.com 2019</p>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, rgba(108, 99, 255, 0.25), transparent 40%), var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        body.light {
+            background: radial-gradient(circle at top, rgba(108, 99, 255, 0.15), transparent 45%), var(--light-bg);
+            color: var(--light-text);
+        }
+
+        .container {
+            width: min(1100px, 90vw);
+            margin: 0 auto;
+            padding: 3rem 0 5rem;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(18px);
+            background: rgba(5, 7, 15, 0.7);
+            border-bottom: 1px solid var(--border);
+            z-index: 20;
+        }
+
+        body.light header {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: var(--light-border);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 0;
+        }
+
+        nav .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.15rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            opacity: 1;
+        }
+
+        .theme-toggle {
+            border: 1px solid var(--border);
+            background: transparent;
+            color: inherit;
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: transform 0.25s ease, border-color 0.25s;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-1px);
+            border-color: var(--primary);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+            gap: 2.5rem;
+            padding: 4rem 0 5rem;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-copy h1 span {
+            color: var(--primary);
+        }
+
+        .hero-copy p {
+            max-width: 640px;
+            color: var(--muted);
+            font-size: 1.06rem;
+        }
+
+        body.light .hero-copy p {
+            color: var(--light-muted);
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #6c63ff, #a06bff);
+            color: #fff;
+            box-shadow: 0 10px 25px -12px var(--primary);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            color: inherit;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -40px black;
+        }
+
+        body.light .hero-panel {
+            background: var(--light-card);
+            border-color: var(--light-border);
+            box-shadow: 0 25px 60px -50px rgba(17, 18, 43, 0.5);
+        }
+
+        .hero-panel::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, var(--primary-glow), transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-meta {
+            display: grid;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-meta div {
+            padding: 1.25rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        body.light .hero-meta div {
+            border-color: var(--light-border);
+        }
+
+        .hero-meta span {
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+        }
+
+        section {
+            margin-bottom: 4.5rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            padding: 1.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: transform 0.35s ease, border-color 0.35s;
+        }
+
+        body.light .card {
+            background: var(--light-card);
+            border-color: var(--light-border);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .pill {
+            background: rgba(108, 99, 255, 0.18);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        body.light .pill {
+            background: rgba(108, 99, 255, 0.12);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 2rem;
+            margin-left: 0.8rem;
+        }
+
+        .timeline-entry {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-entry::before {
+            content: "";
+            position: absolute;
+            left: -2.1rem;
+            top: 0.6rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            background: var(--bg);
+        }
+
+        body.light .timeline-entry::before {
+            background: var(--light-bg);
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 0.35rem;
+        }
+
+        .experience-roles li {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .experience-roles li::before {
+            content: "▹";
+            color: var(--primary);
+        }
+
+        .skills-filter {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-filter button {
+            border: 1px solid var(--border);
+            background: transparent;
+            color: inherit;
+            padding: 0.4rem 1.1rem;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .skills-filter button.active {
+            background: rgba(108, 99, 255, 0.2);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            padding: 1rem;
+            border-radius: 14px;
+            border: 1px dashed var(--border);
+            background: rgba(108, 99, 255, 0.06);
+        }
+
+        body.light .skill-card {
+            background: rgba(108, 99, 255, 0.08);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .edu-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .achievements-grid {
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .achievements-grid li {
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+
+        .achievements-grid li::before {
+            content: "★";
+            color: #f7c948;
+            margin-top: 0.1rem;
+        }
+
+        .contact-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card a {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1.2rem;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            color: inherit;
+            text-decoration: none;
+            align-items: center;
+            transition: border-color 0.3s, transform 0.3s;
+            background: var(--bg-card);
+        }
+
+        .contact-card a:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        body.light .contact-card a {
+            background: var(--light-card);
+            border-color: var(--light-border);
+        }
+
+        footer {
+            padding: 3rem 0 2rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 720px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 2.5rem;
+            }
+
+            .timeline {
+                margin-left: 0;
+                padding-left: 1.5rem;
+            }
+
+            .timeline-entry::before {
+                left: -1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">SAURABH</div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#achievements">Highlights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle">Toggle Theme</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="about">
+            <div class="hero-copy">
+                <p class="pill">Lead Software Engineer · 10+ Years</p>
+                <h1>Hi, I'm <span>Saurabh Kumar</span> — building resilient microservices & intelligent platforms.</h1>
+                <p>
+                    Currently a Supervising Associate Engineer (Product) at Ernst & Young, crafting mobility solutions,
+                    architecting distributed systems, and mentoring teams to deliver dependable enterprise software.
+                </p>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="mailto:nitj.saurabh@gmail.com">Let’s Collaborate</a>
+                    <button class="btn btn-outline" id="resumeBtn">Download Resume</button>
+                </div>
+            </div>
+            <aside class="hero-panel">
+                <div class="hero-meta">
+                    <div>
+                        <span>Current Role</span>
+                        Supervising Associate Engineer (Product)<br />Ernst & Young · Bengaluru
+                    </div>
+                    <div>
+                        <span>Focus</span>
+                        Microservices · Cloud · Workflow Engines · Distributed Systems
+                    </div>
+                    <div>
+                        <span>Connect</span>
+                        +91 89689 36037 · nitj.saurabh@gmail.com · @imsourya
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <article class="timeline-entry card">
+                    <div class="pill">Feb 2020 – Present</div>
+                    <h3>Ernst & Young · Bengaluru</h3>
+                    <p>Supervising Associate Engineer (Product)</p>
+                    <ul class="experience-roles">
+                        <li>Lead engineer for Mobility Pathway platform delivering global tax & travel products.</li>
+                        <li>Reimagined a monolith into microservices, improving scalability by 70% and reliability.</li>
+                        <li>Built Camunda-driven workflow engine handling large-scale YAML rule validations.</li>
+                        <li>Mentor a team of 4 developers, driving design reviews, SDLC and agile best practices.</li>
+                        <li>Champion continuous learning with bi-weekly tech deep-dives across the org.</li>
+                    </ul>
+                    <p><strong>Stack:</strong> Java 8-11, Azure Functions, Spring, Camunda, SQL, Elasticsearch, Distributed
+                        Systems</p>
+                </article>
+
+                <article class="timeline-entry card">
+                    <div class="pill">Apr 2018 – Feb 2020</div>
+                    <h3>Mavenir Systems · Mumbai</h3>
+                    <p>Member of Technical Staff 3 (R&D)</p>
+                    <ul class="experience-roles">
+                        <li>Developed core 5G access & mobility management microservices with Couchbase.</li>
+                        <li>Created stateless/stateful services and a path management microservice for 5G/4G handoffs.</li>
+                        <li>Implemented UDP/SCTP server simulators to power exhaustive unit testing suites.</li>
+                        <li>Enhanced security modules for integrity, registration and access authentication.</li>
+                    </ul>
+                    <p><strong>Stack:</strong> C++, Microservices, Couchbase, Protobuf RPC, HTTP2, AWS, REST APIs</p>
+                </article>
+
+                <article class="timeline-entry card">
+                    <div class="pill">Apr 2016 – Apr 2018</div>
+                    <h3>Edelweiss Financial Services · Mumbai</h3>
+                    <p>Software Developer</p>
+                    <ul class="experience-roles">
+                        <li>Built quantitative trading strategies and automation across risk/compliance flows.</li>
+                        <li>Engineered feed generators, exchange feed manipulators, and validation frameworks.</li>
+                        <li>Automated trading risk management assessments with advanced tooling.</li>
+                        <li>Delivered broadcast-feed validation tools ensuring integrity for trading ops.</li>
+                    </ul>
+                    <p><strong>Stack:</strong> Java, Python, Jython, Shell, ActiveMQ, Robot Framework, RMI, Multithreading
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-filter">
+                <button class="active" data-skill="all">All</button>
+                <button data-skill="languages">Languages</button>
+                <button data-skill="frameworks">Frameworks</button>
+                <button data-skill="cloud">Cloud & DevOps</button>
+                <button data-skill="data">Data & Storage</button>
+                <button data-skill="tooling">Tooling & Testing</button>
+            </div>
+            <div class="skills-grid" id="skillsGrid">
+                <div class="skill-card" data-group="languages">Java 8-11</div>
+                <div class="skill-card" data-group="languages">C++</div>
+                <div class="skill-card" data-group="languages">Python</div>
+                <div class="skill-card" data-group="frameworks">Spring · Spring Boot</div>
+                <div class="skill-card" data-group="frameworks">Dropwizard · Hibernate</div>
+                <div class="skill-card" data-group="frameworks">Camunda BPMN</div>
+                <div class="skill-card" data-group="cloud">Azure · Azure Functions</div>
+                <div class="skill-card" data-group="cloud">AWS</div>
+                <div class="skill-card" data-group="data">SQL · SQL Server</div>
+                <div class="skill-card" data-group="data">Couchbase</div>
+                <div class="skill-card" data-group="tooling">Microservices Architecture</div>
+                <div class="skill-card" data-group="tooling">API Design · Distributed Systems</div>
+                <div class="skill-card" data-group="tooling">JUnit · Spock · Selenium</div>
+                <div class="skill-card" data-group="tooling">Git · SVN · Maven</div>
+                <div class="skill-card" data-group="tooling">Guava · JDBI · JSCh</div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid card">
+                <div class="edu-card">
+                    <p class="pill">2015</p>
+                    <h3>B.Tech · Computer Science & Engineering</h3>
+                    <p>National Institute of Technology, Jalandhar, Punjab</p>
+                </div>
+                <div class="edu-card">
+                    <p class="pill">2010</p>
+                    <h3>Class XII · CBSE</h3>
+                    <p>BVM Senior Secondary School, Ludhiana, Punjab</p>
+                </div>
+                <div class="edu-card">
+                    <p class="pill">2008</p>
+                    <h3>Class X · State Board</h3>
+                    <p>SMGK High School, Patna, Bihar</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2 class="section-title">Leadership & Achievements</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="pill">Leadership</span>
+                    <h3>Strategic Design & Mentorship</h3>
+                    <p>Architected end-to-end platform capabilities, aligning engineering roadmaps with business
+                        outcomes while guiding cross-functional teams and nurturing talent.</p>
+                </div>
+                <div class="card">
+                    <span class="pill">Collaboration</span>
+                    <p>Partnered with product, UX, and stakeholders to ship high-impact releases and elevate customer
+                        experiences.</p>
+                </div>
+                <div class="card">
+                    <span class="pill">Achievements</span>
+                    <ul class="achievements-grid">
+                        <li>Exceptional Client Product Award 2024 · Ernst & Young</li>
+                        <li>Multiple Technology Spot Awards for performance & innovation</li>
+                        <li>Runner-up · Olympiad Innovatex 2024 Hackathon (Microsoft & EY)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Let’s Build Something Impactful</h2>
+            <p>
+                Whether it's microservices modernization, distributed workflow automation, or leading high-performing
+                teams,
+                I'm excited to collaborate.
+            </p>
+            <div class="contact-card">
+                <a href="tel:+918968936037">
+                    <strong>Call</strong>
+                    <span>+91 89689 36037</span>
+                </a>
+                <a href="mailto:nitj.saurabh@gmail.com">
+                    <strong>Email</strong>
+                    <span>nitj.saurabh@gmail.com</span>
+                </a>
+                <a href="https://github.com/imsourya" target="_blank" rel="noopener">
+                    <strong>GitHub</strong>
+                    <span>@imsourya</span>
+                </a>
+                <a href="https://www.linkedin.com/in/ksaurabh9/" target="_blank" rel="noopener">
+                    <strong>LinkedIn</strong>
+                    <span>/in/ksaurabh9</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Crafted with curiosity · © <span id="year"></span> Saurabh Kumar
     </footer>
+
+    <script>
+        const body = document.body;
+        const themeToggle = document.getElementById('themeToggle');
+        const resumeBtn = document.getElementById('resumeBtn');
+        const skillsFilterButtons = document.querySelectorAll('.skills-filter button');
+        const skillCards = document.querySelectorAll('.skill-card');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        const storedTheme = localStorage.getItem('theme');
+
+        const setTheme = (theme) => {
+            if (theme === 'light') {
+                body.classList.add('light');
+            } else {
+                body.classList.remove('light');
+            }
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+        };
+
+        setTheme(storedTheme || (prefersDark.matches ? 'dark' : 'light'));
+        themeToggle.addEventListener('click', () => {
+            setTheme(body.classList.contains('light') ? 'dark' : 'light');
+        });
+
+        resumeBtn.addEventListener('click', () => {
+            window.print();
+        });
+
+        skillsFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedGroup = button.dataset.skill;
+                skillsFilterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                skillCards.forEach(card => {
+                    card.style.display = selectedGroup === 'all' || card.dataset.group === selectedGroup ? 'block' : 'none';
+                });
+            });
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(40px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const anchor = link.getAttribute('href');
+                document.querySelector(anchor).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
+
 </html>
